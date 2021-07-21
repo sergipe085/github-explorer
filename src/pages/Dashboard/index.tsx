@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
 
             <Form hasError={!!inputError} onSubmit={handleAddRepository}>
                 <input
-                    placeholder="Digite o nome do repositorio"
+                    placeholder="Digite o nome do repositorio (autor/repositorio)"
                     value={newRepo}
                     onChange={(event) => setNewRepo(event.target.value)}
                 />
