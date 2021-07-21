@@ -18,7 +18,7 @@ Clone o projeto e acesse a pasta do mesmo.
 
 ```bash
 $ git clone https://github.com/serjolas1/github-explorer.git
-$ cd nlw-06-reactjs
+$ cd github-explorer
 ```
 
 Para iniciá-lo, siga os passos abaixo:
