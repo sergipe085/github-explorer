@@ -10,7 +10,7 @@ export const Title = styled.h1`
     margin-top: 80px;
 `;
 
-export const Form = styled.footer`
+export const Form = styled.form`
     margin-top: 40px;
     max-width: 700px;
 
@@ -77,7 +77,8 @@ export const Repositories = styled.div`
         }
 
         div {
-            margin-left: 16px;
+            margin: 0 16px;
+            flex: 1;
 
             strong {
                 font-size: 20px;
