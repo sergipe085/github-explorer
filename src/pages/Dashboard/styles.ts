@@ -114,3 +114,20 @@ export const Error = styled.span`
     color: #c53030;
     margin-top: 8px;
 `;
+
+export const ClearButton = styled.button`
+    margin-top: 40px;
+    max-width: 700px;
+    width: 100%;
+    height: 70px;
+    border-radius: 5px;
+    border: 0;
+    background-color: #ed1c24;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 200ms;
+
+    &:hover {
+        background-color: ${shade(0.2, "#ed1c24")};
+    }
+`;

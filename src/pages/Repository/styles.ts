@@ -77,7 +77,7 @@ export const RepositoryInfo = styled.section`
 `;
 
 export const Issues = styled.div`
-    margin-top: 80px;
+    margin-top: 10px;
 
     a {
         background: #fff;
@@ -119,5 +119,26 @@ export const Issues = styled.div`
             margin-left: auto;
             color: #cbcbd6;
         }
+    }
+`;
+
+export const TargetSelector = styled.div`
+    margin-top: 80px;
+    display: flex;
+    gap: 15px;
+
+    button {
+        background: transparent;
+        border: 0;
+        color: #a8a8b3;
+        transition: transform 200ms;
+
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
+    }
+
+    button.selected {
+        color: #737380;
     }
 `;

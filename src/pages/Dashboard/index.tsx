@@ -5,7 +5,8 @@ import api from "../../services/api";
 
 import logoImg from "../../assets/logo.svg"
 
-import { Title, Form, Repositories, Error } from "./styles";
+import { Title, Form, Repositories, Error, ClearButton } from "./styles";
+import EmptyContainer from "../../components/EmptyContainer";
 
 interface Repository {
     full_name: string;
@@ -56,6 +57,15 @@ const Dashboard: React.FC = () => {
         }
     }
 
+    function handleClear() {
+        const clear = window.confirm("Tem certeza que deseja limpar os seus repositorios?");
+
+        if (!clear) return;
+
+        localStorage.setItem("@GithubExplorer:repositories", "");
+        setRepositories([]);
+    }
+
     return (
         <>
             <img src={logoImg} alt="Github Explorer"></img>
@@ -72,21 +82,40 @@ const Dashboard: React.FC = () => {
 
             { inputError && <Error>{inputError}</Error> }
 
-            <Repositories>
-                {
-                    repositories.map(repository => (
-                        <Link to={`/repositories/${repository.full_name}`} key={repository.full_name}>
-                            <img src={repository.owner.avatar_url} alt={repository.owner.login}/>
-                            <div>
-                                <strong>{repository.full_name}</strong>
-                                <p>{repository.description}</p>
-                            </div>
+            {
 
-                            <FiChevronRight size={20}/>
-                        </Link>
-                    ))
-                }
-            </Repositories>
+
+                <Repositories>
+                    {
+                        repositories.length > 0 ?
+                        repositories.map(repository => (
+                            <Link to={`/repositories/${repository.full_name}`} key={repository.full_name}>
+                                <img src={repository.owner.avatar_url} alt={repository.owner.login}/>
+                                <div>
+                                    <strong>{repository.full_name}</strong>
+                                    <p>{repository.description}</p>
+                                </div>
+
+                                <FiChevronRight size={20}/>
+                            </Link>
+                        ))
+
+                        :
+
+                        <EmptyContainer title="Nenhum repositorio por aqui"/>
+                    }
+                </Repositories>
+
+            }
+
+
+
+            {
+                repositories.length > 0 &&
+                <ClearButton onClick={handleClear}>
+                    Clear
+                </ClearButton>
+            }
         </>
     );
 }
